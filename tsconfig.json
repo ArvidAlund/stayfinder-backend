@@ -4,5 +4,5 @@
     "strict": true, "esModuleInterop": true, "skipLibCheck": true, "types": ["node"],
     "outDir": "dist", "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }

@@ -5,6 +5,7 @@ import { env } from "./env.js";
 import { HttpError } from "./errors.js";
 import { session } from "./middleware.js";
 import { authRoutes } from "./routes-auth.js";
+import { propertyRoutes } from "./routes-properties.js";
 
 export const app = new Hono<AppEnv>();
 
@@ -14,6 +15,7 @@ app.use("*", session);
 
 app.get("/health", (c) => c.json({ ok: true }));
 app.route("/auth", authRoutes);
+app.route("/properties", propertyRoutes);
 
 app.notFound((c) => c.json({ error: "Not found", code: "NOT_FOUND" }, 404));
 app.onError((err, c) => {
